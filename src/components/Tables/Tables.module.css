@@ -1,0 +1,40 @@
+.container {
+    margin: 1% 2% !important ;
+    width: 70%;
+}
+
+
+#headcell {
+    font-weight: bold;
+    font-size: medium;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#items {
+    font-size: small;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@media(max-width : 870px) {
+    .container {
+        width: 100%;
+        margin: 0 10%;
+    }
+
+    #headcell {
+        font-weight: bold;
+        font-size: x-small;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    #items {
+        font-size: xx-small;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+}
+
+
+
+
+
+

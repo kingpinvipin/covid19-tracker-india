@@ -1,26 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { fetchData} from './api' ;
+import { Cards, Tables, Charts, BarCharts } from './components' ;
+import styles from './App.module.css' ;
+import coronaImage from './images/image.png' ;
+import StatePicker from './components/StatePicker/StatePicker';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends React.Component {
+  state = {
+    data : {},
+    state_name : '',
+  }
+
+  async componentDidMount() {
+    const fetchedData = await fetchData() ;
+    this.setState({data : fetchedData}) ;
+  }
+
+  handleState = (state_name) => {
+    this.setState({state_name : state_name}) ;
+  }
+
+  render() {
+    const { data, state_name } = this.state ;
+    return (
+      <div className = {styles.container}>
+          <img className = {styles.image} src = {coronaImage} alt = 'COVID-19-INDIA' />
+          <Cards  data = { data } state_name = {state_name} />
+          <StatePicker data = {data} state_name = {state_name} handleState = { this.handleState } />
+          <Tables data = { data } state_name = {state_name} handleState = { this.handleState } />
+          {!state_name ? <Charts /> : null }
+          <BarCharts data = { data } state_name = {state_name} />
+      </div>
+    )
+  }
 }
-
-export default App;
