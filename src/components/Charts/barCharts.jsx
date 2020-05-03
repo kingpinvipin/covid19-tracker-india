@@ -22,7 +22,7 @@ const BarCharts = ({data : {total_values, state_wise}, state_name}) => {
     }
 
     var bgColor = ['rgba(139, 0, 0, 1'] ;
-    for(var i = 0 ; i < items.length ; i++)  bgColor.push('rgba(139, 0, 0, 1') ;
+    for(var i = 1 ; i < items.length ; i++)  bgColor.push('rgba(139, 0, 0, 1') ;
 
 
     const barChart = (
